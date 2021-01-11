@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44847834, g: 0.49851424, b: 0.57564104, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 85586653afbac6c4ab76da112363cbef,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -714,6 +715,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e385c86eeab4d646aa0e93c552b471a, type: 3}
+--- !u!1 &1911154393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6905474858610351090, guid: 0e385c86eeab4d646aa0e93c552b471a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1538200879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1911154394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911154393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d4ae9e9cc3252478d11699a827d5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 15, y: 0, z: 0}
+  period: 2
+  movementFactor: 0
 --- !u!1001 &548562088466262175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,6 +812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 30.761002
+      objectReference: {fileID: 0}
+    - target: {fileID: 548562088097356293, guid: 4073ff623b2c51d43a837602ee740c4f,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 548562088097356294, guid: 4073ff623b2c51d43a837602ee740c4f,
         type: 3}
@@ -1104,12 +1131,12 @@ PrefabInstance:
     - target: {fileID: 7736531616591615334, guid: 1e7934aa896f5c240828a3d1542d9e27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.6
+      value: -26.2
       objectReference: {fileID: 0}
     - target: {fileID: 7736531616591615334, guid: 1e7934aa896f5c240828a3d1542d9e27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 7736531616591615334, guid: 1e7934aa896f5c240828a3d1542d9e27,
         type: 3}
