@@ -10,6 +10,8 @@ public class Rocket : MonoBehaviour
 
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
+    [SerializeField] float levelLoadDelay = 2f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip death;
@@ -20,6 +22,8 @@ public class Rocket : MonoBehaviour
 
     enum State { Alive, Dying, Transcending }
     State state = State.Alive;
+
+    bool collisionsDisabled = false;
 
     void Start()
     {
@@ -35,12 +39,26 @@ public class Rocket : MonoBehaviour
             RespondToRotateInput();
             RespondToThrustInput();
         }
-        
+        DebugKey();
+    }
+
+    private void DebugKey()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsDisabled = !collisionsDisabled;
+        }
+
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive){ return; }
+        if (state != State.Alive || collisionsDisabled){ return; }
 
         switch (collision.gameObject.tag)
         {
@@ -62,7 +80,7 @@ public class Rocket : MonoBehaviour
         _audioSource.Stop();
         _audioSource.PlayOneShot(success);
         successParticles.Play();
-        Invoke("LoadNextLevel", 1f);
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     private void StartDeathSequence()
@@ -71,7 +89,7 @@ public class Rocket : MonoBehaviour
         _audioSource.Stop();
         _audioSource.PlayOneShot(death);
         deathParticles.Play();
-        Invoke("LoadFirstLevel", 1f);
+        Invoke("LoadFirstLevel", levelLoadDelay);
     }
 
     private void LoadNextLevel()
@@ -111,7 +129,7 @@ public class Rocket : MonoBehaviour
         else
         {
             _audioSource.Stop();
-            mainEngineParticles.Play();
+            mainEngineParticles.Stop();
         }
     }
 
@@ -124,4 +142,6 @@ public class Rocket : MonoBehaviour
         }
         mainEngineParticles.Play();
     }
+
+   
 }
